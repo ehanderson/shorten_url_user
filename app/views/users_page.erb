@@ -1,0 +1,26 @@
+
+<div class ="container">
+  <h1>Login(or don't) to Link Shortener!</h1>
+  <div class = "urls">
+    <form action = '/urls' method ='post'>
+      <label for = 'original_url'>URL:</label>
+      <input type = 'text' name ='original_url'id='original_url' placeholder = 'original_url'>
+      <input type = 'submit' value ='shorten_link'>
+    </form>
+
+    <table>
+      <tr>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+        <th>Counter</th>
+      </tr>
+      <% Url.all.each do |url| %>
+      <tr>
+      <th><%= url.original_url %></th>
+      <th><a href='/<%= url.shortened_url %>'><%= url.shortened_url %></a></th>
+      <th><%= url.click_counter %></th>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
